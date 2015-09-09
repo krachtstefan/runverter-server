@@ -32,13 +32,13 @@ The shared secret to use for authenticating to Redis. It is blank by default,
 which disables authentication.
 
 
-# build the image 
+## build the image 
 
 ```shell
 docker build --tag stefankracht/runverter-webserver .
 ```
 
-# publish the image
+## publish the image
 
 ```shell
 docker push stefankracht/runverter-webserver
