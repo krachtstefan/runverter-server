@@ -1,5 +1,7 @@
 {
   "name": "runverter-webserver",
+  "description": "This container serves the frontend of the runverter ember app",
+  "readme": "README.md",
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
