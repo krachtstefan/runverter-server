@@ -1,6 +1,6 @@
 # runverter-webserver
 
-This container serves the frontend of the runverter ember app. It shows the content of the ```runverter:current``` redis key deployed via [ember-cli-deploy](https://github.com/ember-cli/ember-cli-deploy). If a get param ```index_key``` is provided, it will lookup the requested version in redis.
+This container serves the frontend of the [runverter ember app](https://github.com/krachtstefan/runverter).  It shows the value of the ```runverter:current``` Redis key which holds the content of the index page that was set with [ember-cli-deploy](https://github.com/ember-cli/ember-cli-deploy). If a get param ```index_key``` is provided, it will lookup the requested version in redis.
 
 ## Run container
 
@@ -8,11 +8,11 @@ This container serves the frontend of the runverter ember app. It shows the cont
 $ docker run --name runverter -d -p 80:3000 stefankracht/runverter-webserver
 ```
 
-The shared port may be changed depending on loadbalancer/proxy setup of the server/cluster.
+The exposed port may be changed depending on loadbalancer/proxy setup of the server/cluster.
 
 ## Environment variables
 
-The container assumes a running redis instance on ```runverter-redis:6379``` and the deployed keys should start with ```runverter```. You can overwrite the environment variables by adding ```--env VARIABLE=new_value``` to the ```docker run``` command.
+The container assumes a running redis instance on ```runverter-redis:6379``` and the keys should start with ```runverter```. You can overwrite the environment variables by adding ```--env VARIABLE=new_value``` to the ```docker run``` command.
 
 ### `APP_NAME`
 
