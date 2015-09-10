@@ -2,7 +2,7 @@
 
 This container serves the frontend of the runverter ember app. It shows the content of the ```runverter:current``` redis key deployed via [ember-cli-deploy](https://github.com/ember-cli/ember-cli-deploy). If a get param ```index_key``` is provided, it will lookup the requested version in redis.
 
-## run container
+## Run container
 
 ```shell
 $ docker run --name runverter -d -p 80:3000 stefankracht/runverter-webserver
@@ -31,13 +31,13 @@ The port that Redis is listening on. Only necessary if redis is not listening to
 The shared secret to use for authenticating to Redis. It is blank by default,
 which disables authentication.
 
-## build the image 
+## Build the image 
 
 ```shell
 $ docker build --tag stefankracht/runverter-webserver .
 ```
 
-## publish the image
+## Publish the image
 
 ```shell
 $ docker push stefankracht/runverter-webserver
