@@ -18,17 +18,17 @@ runverter-app-6:3000
 ## run container
 
 ```shell
-docker run --name runverter-haproxy -d stefankracht/runverter-haproxy
+$ docker run --name runverter-haproxy -d stefankracht/runverter-haproxy
 ```
 
 ## build the image 
 
 ```shell
-docker build --tag stefankracht/runverter-haproxy .
+$ docker build --tag stefankracht/runverter-haproxy .
 ```
 
 ## publish the image
 
 ```shell
-docker push stefankracht/runverter-haproxy
+$ docker push stefankracht/runverter-haproxy
 ```

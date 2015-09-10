@@ -5,7 +5,7 @@ This container serves the frontend of the runverter ember app. It shows the cont
 ## run container
 
 ```shell
-docker run --name runverter -d -p 80:3000 stefankracht/runverter-webserver
+$ docker run --name runverter -d -p 80:3000 stefankracht/runverter-webserver
 ```
 
 The shared port may be changed depending on loadbalancer/proxy setup of the server/cluster.
@@ -34,11 +34,11 @@ which disables authentication.
 ## build the image 
 
 ```shell
-docker build --tag stefankracht/runverter-webserver .
+$ docker build --tag stefankracht/runverter-webserver .
 ```
 
 ## publish the image
 
 ```shell
-docker push stefankracht/runverter-webserver
+$ docker push stefankracht/runverter-webserver
 ```
