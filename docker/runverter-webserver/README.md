@@ -31,7 +31,6 @@ The port that Redis is listening on. Only necessary if redis is not listening to
 The shared secret to use for authenticating to Redis. It is blank by default,
 which disables authentication.
 
-
 ## build the image 
 
 ```shell
