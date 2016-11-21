@@ -18,11 +18,13 @@ Assets of the applications are hosted via amazon S3 CDN.
 - Make sure docker is installed. 
 
 ### create a shared network
+
 ```shell
 $ docker network create runverter
 ```
 
 ### start redis
+
 - Pull Redis image from docker and start container.
 ```shell
 $ docker pull redis
