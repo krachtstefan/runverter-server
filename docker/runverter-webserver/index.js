@@ -25,9 +25,9 @@ app.use(function* () {
   var indexkey;
 
   if (this.request.query.index_key) {
-    indexkey = process.env.APP_NAME +':'+ this.request.query.index_key;
+    indexkey = process.env.APP_NAME +':index:'+ this.request.query.index_key;
   } else {
-    indexkey = yield dbCo.get(process.env.APP_NAME +':current');
+    indexkey = process.env.APP_NAME +':index:current-content';
   }
 
   var index = yield dbCo.get(indexkey);
