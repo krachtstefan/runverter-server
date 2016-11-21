@@ -26,7 +26,7 @@ $ docker network create runverter
 - Pull Redis image from docker and start container.
 ```shell
 $ docker pull redis
-$ docker run -d --name runverter-redis -p 6379:6379 redis redis-server --appendonly yes
+$ docker run -d --name runverter-redis -P --net runverter redis redis-server --appendonly yes
 ```
 - This container will expose the port ```6379``` and adds its ip to the hostname ```runverter-redis```. This is required to let the node applications talk to Redis.
 
@@ -35,7 +35,7 @@ $ docker run -d --name runverter-redis -p 6379:6379 redis redis-server --appendo
 - Pull runverter-webserver and start 6 container instances.
 ```shell
 $ docker pull stefankracht/runverter-webserver
-$ docker run --name runverter-app-1 -h runverter-app-1 --link runverter-redis -d stefankracht/runverter-webserver && docker run --name runverter-app-2 -h runverter-app-2 --link runverter-redis -d stefankracht/runverter-webserver && docker run --name runverter-app-3 -h runverter-app-3 --link runverter-redis -d stefankracht/runverter-webserver && docker run --name runverter-app-4 -h runverter-app-4 --link runverter-redis -d stefankracht/runverter-webserver && docker run --name runverter-app-5 -h runverter-app-5 --link runverter-redis -d stefankracht/runverter-webserver && docker run --name runverter-app-6 -h runverter-app-6 --link runverter-redis -d stefankracht/runverter-webserver
+$ docker run -d --name runverter-app-1 --net runverter stefankracht/runverter-webserver && docker run -d --name runverter-app-2 --net runverter stefankracht/runverter-webserver && docker run -d --name runverter-app-3 --net runverter stefankracht/runverter-webserver && docker run -d --name runverter-app-4 --net runverter stefankracht/runverter-webserver && docker run -d --name runverter-app-5 --net runverter stefankracht/runverter-webserver && docker run -d --name runverter-app-6 --net runverter stefankracht/runverter-webserver
 ```
 
 ### start haproxy
@@ -43,5 +43,5 @@ $ docker run --name runverter-app-1 -h runverter-app-1 --link runverter-redis -d
 - Pull runverter-haproxy and start container.
 ```shell
 $ docker pull stefankracht/runverter-haproxy
-$ docker run --name runverter-haproxy --link runverter-app-1 --link runverter-app-2 --link runverter-app-3 --link runverter-app-4 --link runverter-app-5 --link runverter-app-6 -d -p 80:80 stefankracht/runverter-haproxy
+$ docker run -d --name runverter-haproxy --net runverter -p 80:80 stefankracht/runverter-haproxy
 ```
