@@ -28,7 +28,7 @@ $ docker network create runverter
 - Pull Redis image from docker and start container.
 ```shell
 $ docker pull redis
-$ docker run -d --name runverter-redis --net runverter -p 6379:6379 redis redis-server --appendonly yes
+$ docker run -d --name runverter-redis --net runverter -p 127.0.0.1:6379:6379 redis redis-server --appendonly yes
 ```
 - This container will expose the port ```6379``` and its ip will become available in the shared network via the hostname ```runverter-redis```. This is required to let the node applications access Redis.
 
