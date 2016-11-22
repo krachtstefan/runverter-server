@@ -18,7 +18,7 @@ runverter-app-6:3000
 ## Run container
 
 ```shell
-$ docker run --name runverter-haproxy -d stefankracht/runverter-haproxy
+$ docker run -d --name runverter-haproxy --net runverter -p 80:80 stefankracht/runverter-haproxy
 ```
 
 ## Build the image 
