@@ -8,7 +8,7 @@ This container serves the frontend of the [runverter ember app](https://github.c
 $ docker run -d --name runverter-app1 --net runverter stefankracht/runverter-webserver
 ```
 
-The exposed port may be changed depending on loadbalancer/proxy setup of the server/cluster.
+This examples starts one instance of the node cluster. It exposes the port 3000 in the shared network ```runverter``` and its ip will become available via the hostname ```runverter-app1```. You can start multiple instances like ```runverter-app2```, ```runverter-app2``` etc.
 
 ## Environment variables
 
