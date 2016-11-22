@@ -5,7 +5,7 @@ This container serves the frontend of the [runverter ember app](https://github.c
 ## Start container
 
 ```shell
-$ docker run --name runverter -d -p 80:3000 stefankracht/runverter-webserver
+$ docker run -d --name runverter-app1 --net runverter stefankracht/runverter-webserver
 ```
 
 The exposed port may be changed depending on loadbalancer/proxy setup of the server/cluster.
