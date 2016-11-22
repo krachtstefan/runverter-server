@@ -21,6 +21,8 @@ runverter-app-6:3000
 $ docker run -d --name runverter-haproxy --net runverter -p 80:80 stefankracht/runverter-haproxy
 ```
 
+This starts the haproxy server in the shared network ```runverter``` and exposes port 80 to the outside world.
+
 ## Build the image 
 
 ```shell
