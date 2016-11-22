@@ -1,6 +1,6 @@
 # runverter-webserver
 
-This container serves the frontend of the [runverter ember app](https://github.com/krachtstefan/runverter).  It shows the value of the ```runverter:current``` Redis key which holds the content of the index page that was set with [ember-cli-deploy](https://github.com/ember-cli/ember-cli-deploy). If a get param ```index_key``` is provided, it will lookup the requested version in redis.
+This container serves the frontend of the [runverter ember app](https://github.com/krachtstefan/runverter).  It shows the value of the ```runverter:index:current-content``` Redis key which holds the content of the index page that was set with [ember-cli-deploy](https://github.com/ember-cli/ember-cli-deploy). If a get parameter ```index_key``` is provided, it will lookup the requested version in redis.
 
 ## Start container
 
