@@ -2,6 +2,7 @@
 
 var redis = require('redis'),
     coRedis = require('co-redis'),
+    send = require('koa-send'),
     koa = require('koa');
 
 var app = koa(),
