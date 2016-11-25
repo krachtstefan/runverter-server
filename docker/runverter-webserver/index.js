@@ -21,23 +21,28 @@ client.on('error', function (err) {
 });
 
 
-app.use(function* () {
+app.use(function *(){
+  // serve index.html from redis
+  if ('/' == this.path){
+    var indexkey;
+    
+    if (this.request.query.index_key) {
+      indexkey = process.env.APP_NAME +':index:'+ this.request.query.index_key;
+    } else {
+      indexkey = process.env.APP_NAME +':index:current-content';
+    }
 
-  var indexkey;
+    var index = yield dbCo.get(indexkey);
 
-  if (this.request.query.index_key) {
-    indexkey = process.env.APP_NAME +':index:'+ this.request.query.index_key;
-  } else {
-    indexkey = process.env.APP_NAME +':index:current-content';
+    if (index) {
+      this.body = index;
+    } else {
+      this.status = 404;
+    }
+  // serve static assets
+  }else{
+    yield send(this, this.path, { root: __dirname + '/runverter' });  
   }
-
-  var index = yield dbCo.get(indexkey);
-
-  if (index) {
-    this.body = index;
-  } else {
-    this.status = 404;
-  }
-});
+})
 
 app.listen(process.env.PORT || 3000);
