@@ -19,10 +19,10 @@ runverter-app-6:3000
 
 ```shell
 $ docker pull stefankracht/runverter-haproxy
-$ docker run -d --name runverter-haproxy --net runverter -p 80:80 stefankracht/runverter-haproxy
+$ docker run -d --name runverter-haproxy --net runverter -v /etc/haproxy/certs/:/etc/haproxy/certs/ -p 80:80 -p 443:443 stefankracht/runverter-haproxy
 ```
 
-This starts the haproxy server in the shared network ```runverter``` and exposes port 80 to the outside world.
+This starts the haproxy server in the shared network ```runverter``` and exposes port 80 and 443 to the outside world. The local folder ```/etc/haproxy/certs/``` will be available inside the container to access required ssl certificates.
 
 ## Build the image 
 
