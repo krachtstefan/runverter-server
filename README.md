@@ -43,7 +43,7 @@ $ docker pull stefankracht/runverter-webserver
 $ docker run -d --name runverter-app-1 --net runverter -v ~/runverter:/usr/src/app/runverter stefankracht/runverter-webserver && docker run -d --name runverter-app-2 --net runverter -v ~/runverter:/usr/src/app/runverter stefankracht/runverter-webserver && docker run -d --name runverter-app-3 --net runverter -v ~/runverter:/usr/src/app/runverter stefankracht/runverter-webserver && docker run -d --name runverter-app-4 --net runverter -v ~/runverter:/usr/src/app/runverter stefankracht/runverter-webserver && docker run -d --name runverter-app-5 --net runverter -v ~/runverter:/usr/src/app/runverter stefankracht/runverter-webserver && docker run -d --name runverter-app-6 --net runverter -v ~/runverter:/usr/src/app/runverter stefankracht/runverter-webserver
 ```
 
-This container will link the folder ```~/runverter``` from the docker machine and make it accessible inside the container under ```/usr/src/app/runverter```.
+For more detailed description, please read the ```docker/runverter-webserver/README.md```.
 
 ### start haproxy
 
@@ -53,3 +53,5 @@ Pull runverter-haproxy and start container.
 $ docker pull stefankracht/runverter-haproxy
 $ docker run -d --name runverter-haproxy --net runverter -v /etc/haproxy/certs/:/etc/haproxy/certs/ -p 80:80 -p 443:443 stefankracht/runverter-haproxy
 ```
+
+For more detailed description, please read the ```docker/runverter-haproxy/README.md```.
