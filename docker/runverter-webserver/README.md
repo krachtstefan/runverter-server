@@ -9,6 +9,7 @@ All requests other than ```/``` will be forwarded to the ```runverter``` forder 
 ## Start container
 
 ```shell
+$ docker pull stefankracht/runverter-webserver
 $ docker run -d --name runverter-app1 --net -v ~/runverter:/usr/src/app/runverter runverter stefankracht/runverter-webserver
 ```
 
