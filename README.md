@@ -51,7 +51,7 @@ Pull runverter-haproxy and start container.
 
 ```shell
 $ docker pull stefankracht/runverter-haproxy
-$ docker run -d --name runverter-haproxy --net runverter -v /etc/haproxy/certs/:/etc/haproxy/certs/ -p 80:80 -p 443:443 stefankracht/runverter-haproxy
+$ docker run -d --name runverter-haproxy --net runverter -v /etc/haproxy/certs/:/etc/haproxy/certs/ -p 80:80 -p 443:443 -p127.0.0.1:8080:8080 stefankracht/runverter-haproxy
 ```
 
 For more detailed description, please read the ```docker/runverter-haproxy/README.md```.
