@@ -13,7 +13,7 @@ $ docker pull stefankracht/runverter-webserver
 $ docker run -d --name runverter-app1 --net -v ~/runverter:/usr/src/app/runverter runverter stefankracht/runverter-webserver
 ```
 
-This examples starts one instance of the node cluster. It exposes the port 3000 in the shared network ```runverter``` and its ip will become available via the hostname ```runverter-app1```. You can start multiple instances like ```runverter-app2```, ```runverter-app2``` etc.
+This examples starts one instance of the node cluster. It exposes the port 3000 in the shared network ```runverter``` and its ip will become available via the hostname ```runverter-app1```. The local folder ```~/runverter``` will be available inside the container to serve static assets. You can start multiple instances like ```runverter-app2```, ```runverter-app2``` etc.
 
 ## Environment variables
 
