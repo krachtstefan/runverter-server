@@ -27,7 +27,7 @@ sudo chmod -R go-rwx /etc/haproxy/certs
 
 ##Set Up Auto Renewal
 
-Let’s Encrypt certificates are valid for 90 days, but it’s recommended that you renew the certificates every 60 days to allow a margin of error.
+Let’s Encrypt certificates are valid for 90 days, but ```letsencrypt renew``` renews certificates that expire in less than 30 days to allow a margin of error.
 
 use ```crontab -e``` to setup a proper renew cron
 
