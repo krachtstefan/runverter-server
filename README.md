@@ -12,6 +12,8 @@ The node applications connect to a redis instance to get the current index page.
 
 Assets of the applications are hosted via amazon S3 CDN.
 
+Please read the files in the ```server-configuration``` folder, to match the server requirements.
+
 ## setting up the server
 
 - SSH into a server.
