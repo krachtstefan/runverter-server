@@ -33,5 +33,5 @@ use ```crontab -e``` to setup a proper renew cron
 
 ```
 # run renew every monday 2:30 (3:30 in CEST)
-30 2 * * 1  /usr/bin/docker stop $(/usr/bin/docker ps -aqf "name=runverter-haproxy") >> /var/log/letsencrypt-renew.log && /usr/bin/letsencrypt renew >> /var/log/letsencrypt-renew.log && /usr/bin/docker start $(/usr/bin/docker ps -aqf "name=runverter-haproxy") >> /var/log/letsencrypt-renew.log
+30 2 * * 1  /usr/bin/docker stop $(/usr/bin/docker ps -aqf "name=runverter-haproxy") >> /var/log/letsencrypt-renew.log && /usr/bin/letsencrypt renew >> /var/log/letsencrypt-renew.log && /bin/cat /etc/letsencrypt/live/runverter.io/fullchain.pem /etc/letsencrypt/live/runverter.io/privkey.pem > /etc/haproxy/certs/runverter.io.pem && /usr/bin/docker start $(/usr/bin/docker ps -aqf "name=runverter-haproxy") >> /var/log/letsencrypt-renew.log
 ```
