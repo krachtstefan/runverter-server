@@ -3,7 +3,8 @@
 var redis = require('redis'),
     coRedis = require('co-redis'),
     send = require('koa-send'),
-    koa = require('koa');
+    koa = require('koa'),
+    prerender = require('koa-prerender');
 
 var app = koa(),
     client  = redis.createClient(
@@ -20,7 +21,7 @@ client.on('error', function (err) {
   
 });
 
-
+app.use(prerender());
 app.use(function *(){
   // serve index.html from redis
   if ('/' == this.path){
