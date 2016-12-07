@@ -13,7 +13,7 @@ $ docker pull stefankracht/runverter-webserver
 $ docker run -d --name runverter-app-1 --net runverter -v ~/runverter:/usr/src/app/runverter --env PRERENDER_TOKEN=$PRERENDER_TOKEN stefankracht/runverter-webserver 
 ```
 
-This examples starts one instance of the node cluster. It exposes the port 3000 in the shared network ```runverter``` and its ip will become available via the hostname ```runverter-app1```. The local folder ```~/runverter``` will be available inside the container to serve static assets. And the ```$PRERENDER_TOKEN``` will be used to serve SEO friendly pages with [prerender.io](https://prerender.io). You can start multiple instances like ```runverter-app2```, ```runverter-app2``` etc.
+This examples starts one instance of the node cluster. It exposes the port 3000 in the shared network ```runverter``` and its ip will become available via the hostname ```runverter-app1```. The local folder ```~/runverter``` will be available inside the container to serve static assets. And the ```$PRERENDER_TOKEN``` will be used to serve SEO friendly pages to the [prerender.io](https://prerender.io) crawler. You can start multiple instances like ```runverter-app2```, ```runverter-app2``` etc.
 
 ## Environment variables
 
