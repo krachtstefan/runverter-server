@@ -1,6 +1,6 @@
 # runverter-server
 
-Welcome to the server backend of [Runverter](http://runverter.io).
+Welcome to the server backend of [Runverter](http://runverter.io). For more information about this project please check out the [detailed blog post](http://stefankracht.de/news/runverter).
 
 The whole application runs in separated docker containers, which will be maintained in this repository and published as images on [Docker Hub](https://hub.docker.com/r/stefankracht/).
 
