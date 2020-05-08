@@ -8,16 +8,16 @@ The whole application runs in separated docker containers, which will be maintai
 
 All incoming web requests are loadbalanced by haproxy and spreaded to the underlying node containers.
 
-The node applications connect to a redis instance to get the current index page. 
+The node applications connect to a redis instance to get the current index page.
 
 Assets of the applications are hosted via amazon S3 CDN.
 
-Please read the files in the ```server-configuration``` folder, to match the server requirements.
+Please read the files in the `server-configuration` folder, to match the server requirements.
 
 ## setting up the server
 
 - SSH into a server.
-- Make sure docker is installed. 
+- Make sure docker is installed.
 
 ### create a shared network
 
@@ -34,7 +34,7 @@ $ docker pull redis
 $ docker run -d --name runverter-redis --net runverter -p 127.0.0.1:6379:6379 redis redis-server --appendonly yes
 ```
 
-This container will expose the port ```6379``` and its ip will become available in the shared network via the hostname ```runverter-redis```. This is required to let the node applications access Redis.
+This container will expose the port `6379` and its ip will become available in the shared network via the hostname `runverter-redis`. This is required to let the node applications access Redis.
 
 ### start node application(s)
 
@@ -45,7 +45,7 @@ $ docker pull stefankracht/runverter-webserver
 $ docker run -d --name runverter-app-1 --net runverter -v ~/runverter:/usr/src/app/runverter --env PRERENDER_TOKEN=$PRERENDER_TOKEN stefankracht/runverter-webserver && docker run -d --name runverter-app-2 --net runverter -v ~/runverter:/usr/src/app/runverter --env PRERENDER_TOKEN=$PRERENDER_TOKEN stefankracht/runverter-webserver && docker run -d --name runverter-app-3 --net runverter -v ~/runverter:/usr/src/app/runverter --env PRERENDER_TOKEN=$PRERENDER_TOKEN stefankracht/runverter-webserver && docker run -d --name runverter-app-4 --net runverter -v ~/runverter:/usr/src/app/runverter --env PRERENDER_TOKEN=$PRERENDER_TOKEN stefankracht/runverter-webserver && docker run -d --name runverter-app-5 --net runverter -v ~/runverter:/usr/src/app/runverter --env PRERENDER_TOKEN=$PRERENDER_TOKEN stefankracht/runverter-webserver && docker run -d --name runverter-app-6 --net runverter -v ~/runverter:/usr/src/app/runverter --env PRERENDER_TOKEN=$PRERENDER_TOKEN stefankracht/runverter-webserver
 ```
 
-For more detailed description, please read the ```docker/runverter-webserver/README.md```.
+For more detailed description, please read the `docker/runverter-webserver/README.md`.
 
 ### start haproxy
 
@@ -56,4 +56,4 @@ $ docker pull stefankracht/runverter-haproxy
 $ docker run -d --name runverter-haproxy --net runverter -v /etc/haproxy/certs/:/etc/haproxy/certs/ -p 80:80 -p 443:443 -p 127.0.0.1:8080:8080 --env PRERENDER_TOKEN=$PRERENDER_TOKEN stefankracht/runverter-haproxy
 ```
 
-For more detailed description, please read the ```docker/runverter-haproxy/README.md```.
+For more detailed description, please read the `docker/runverter-haproxy/README.md`.
